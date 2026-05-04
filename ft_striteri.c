@@ -1,43 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: swaragay <swaragay@student.42.jp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/30 15:09:41 by swaragay          #+#    #+#             */
-/*   Updated: 2026/05/03 18:03:54 by swaragay         ###   ########.fr       */
+/*   Created: 2026/05/04 13:02:27 by swaragay          #+#    #+#             */
+/*   Updated: 2026/05/04 18:08:56 by swaragay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	size_t			i;
-	unsigned char	w;
+	unsigned int	i;
 
+	if (!s)
+		return ;
 	i = 0;
-	w = (unsigned char)c;
-	while (s[i] != '\0')
-		i++;
-	if (c == '\0')
-		return ((char *)&s[i]);
-	while (i != 0)
-	{
-		if (s[i] == w)
-			return ((char *)&s[i]);
-		i--;
-	}
-	return (NULL);
+	f(i, s);
 }
+
+// void	ft_toupp(unsigned int i, char *s)
+// {
+// 	while (s[i] != '\0')
+// 	{
+// 		if (s[i] >= 97 && s[i] <= 122)
+// 			s[i] = s[i] - 32;
+// 		i++;
+// 	}
+// }
 
 // int	main(void)
 // {
-// 	char	str[20] = "Hello";
+// 	char	s[10] = "abcdefG";
+// 	ft_striteri(s, ft_toupp);
 
-// 	printf("%s\n", strrchr(str, 'l'));
-// 	printf("%s\n", strrchr(str, '\0'));
-// 	printf("%s\n", ft_strrchr(str, 'l'));
-// 	printf("%s\n", ft_strrchr(str, '\0'));
+// 	write(1, s, ft_strlen(s) + 1);
+// 	write(1, "\n", 1);
 // }

@@ -6,7 +6,7 @@
 /*   By: swaragay <swaragay@student.42.jp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/23 15:37:54 by swaragay          #+#    #+#             */
-/*   Updated: 2026/05/01 20:26:54 by swaragay         ###   ########.fr       */
+/*   Updated: 2026/05/04 18:43:08 by swaragay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int	ft_atoi(const char *str)
 
 	total = 0;
 	sign = 1;
+	while (*str == ' ' || (*str >= 9 && *str <= 13))
+		str++;
 	if (*str == '-' || *str == '+')
 	{
 		if (*str == '-')

@@ -1,33 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: swaragay <swaragay@student.42.jp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/25 13:57:01 by swaragay          #+#    #+#             */
-/*   Updated: 2026/05/03 13:50:17 by swaragay         ###   ########.fr       */
+/*   Created: 2026/05/04 19:51:53 by swaragay          #+#    #+#             */
+/*   Updated: 2026/05/04 19:52:30 by swaragay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+t_list *ft_lstnew(void *content)
 {
-	size_t	count;
-
-	count = 0;
-	while (s[count] != '\0')
-	{
-		count++;
-	}
-	return (count);
+	
 }
-
-// int	main(void)
-// {
-// 	char	str[30] = "Hello";
-
-// 	printf("文字数は%dです\n", ft_strlen(str));
-// 	printf("文字数は%luです\n", strlen(str));
-// }

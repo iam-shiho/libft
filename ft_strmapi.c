@@ -1,51 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: swaragay <swaragay@student.42.jp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/02 10:52:33 by swaragay          #+#    #+#             */
-/*   Updated: 2026/05/03 19:21:52 by swaragay         ###   ########.fr       */
+/*   Created: 2026/05/04 11:41:42 by swaragay          #+#    #+#             */
+/*   Updated: 2026/05/04 15:25:53 by swaragay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	char	*dest;
-	size_t	i;
-	size_t	s_len;
+	char			*f_dest;
+	size_t			s_len;
+	unsigned int	i;
 
 	i = 0;
-	if (!s)
-		return (NULL);
 	s_len = ft_strlen(s);
-	if (start >= s_len)
-		return (ft_strdup(""));
-	if (len > s_len - start)
-		len = s_len - start;
-	dest = malloc(sizeof(char) * (len + 1));
-	if (!dest)
-		return (NULL);
-	while (i < len-1)
+	f_dest = malloc(s_len + 1);
+	while (s[i] != '\0')
 	{
-		dest[i] = s[start];
-		start++;
+		f_dest[i] = f(i, s[i]);
 		i++;
 	}
-	dest[i] = '\0';
-	return (dest);
+	return (ft_strdup(f_dest));
 }
+
+// char	ft_toupp(unsigned int i, char s)
+// {
+// 	(void)i;
+// 	if (!(s >= 97 && s <= 122))
+// 		return (s);
+// 	return (s - 32);
+// }
 
 // int	main(void)
 // {
-// 	char	str[20] = "abcdefghijk";
-// 	char	*dest;
+// 	char	s[10] = "abcdefG";
 
-// 	dest = ft_substr(str, 4, 2);
-// 	write(1, dest, 2);
+// 	write(1, ft_strmapi(s, ft_toupp), ft_strlen(s) + 1);
 // 	write(1, "\n", 1);
-// 	free(dest);
 // }

@@ -1,43 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: swaragay <swaragay@student.42.jp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/30 15:09:41 by swaragay          #+#    #+#             */
-/*   Updated: 2026/05/03 18:03:54 by swaragay         ###   ########.fr       */
+/*   Created: 2026/05/04 16:11:50 by swaragay          #+#    #+#             */
+/*   Updated: 2026/05/04 19:19:48 by swaragay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+void ft_putstr_fd(char *s, int fd)
 {
-	size_t			i;
-	unsigned char	w;
+	unsigned int i;
 
+	if (!s)
+		return ;
 	i = 0;
-	w = (unsigned char)c;
-	while (s[i] != '\0')
-		i++;
-	if (c == '\0')
-		return ((char *)&s[i]);
-	while (i != 0)
+	while(s[i] != '\0')
 	{
-		if (s[i] == w)
-			return ((char *)&s[i]);
-		i--;
+		write(fd, &s[i], 1);
+		i++;
 	}
-	return (NULL);
 }
 
 // int	main(void)
 // {
-// 	char	str[20] = "Hello";
+// 	char	c[20] = "abcdefghijk";
 
-// 	printf("%s\n", strrchr(str, 'l'));
-// 	printf("%s\n", strrchr(str, '\0'));
-// 	printf("%s\n", ft_strrchr(str, 'l'));
-// 	printf("%s\n", ft_strrchr(str, '\0'));
+// 	ft_putstr_fd(c, 1);
 // }

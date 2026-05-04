@@ -6,38 +6,77 @@
 /*   By: swaragay <swaragay@student.42.jp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/02 22:02:18 by swaragay          #+#    #+#             */
-/*   Updated: 2026/05/02 22:15:09 by swaragay         ###   ########.fr       */
+/*   Updated: 2026/05/03 14:20:45 by swaragay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_itoa(int n);
+size_t	ft_intlen(int n)
 {
-	size_t len;
-	char *dest;
-	len = ft_strlen((char)n);
-	dest = malloc(sizeof(char) * (len + 1));
-	if (!dest)
-		return (NULL);
+	size_t	count;
+
+	count = 0;
+	if (n == 0)
+		count++;
+	if (n < 0)
+	{
+		n *= -1;
+		count++;
+	}
+	while (n > 0)
+	{
+		n = n / 10;
+		count++;
+	}
+	return (count);
 }
 
-int	ft_atoi(char *str)
+char	*ft_putnbr(int nb, char *dest)
 {
-	int		sign;
-	long	total;
+	int	i;
 
-	sign = 1;
-	if (*str == '-' || *str == '+')
+	if (nb < 0)
 	{
-		if (*str == '-')
-			sign *= -1;
-		str++;
+		i = 0;
+		dest[i] = '-';
+		nb *= -1;
 	}
-	while (*str && (*str >= '0' && *str <= '9'))
+	i = ft_intlen(nb);
+	dest[i] = '\0';
+	i--;
+	while (nb >= 10)
 	{
-		total = total * 10 + (*str - '0');
-		str++;
+		dest[i] = (nb % 10) + '0';
+		nb = nb / 10;
+		i--;
 	}
-	return ((int)(total * sign));
+	dest[i] = (nb % 10) + '0';
+	return (dest);
+}
+
+char	*ft_itoa(int n)
+{
+	char	*dest;
+
+	dest = malloc(ft_intlen(n) + 1);
+	if (!dest)
+		return (NULL);
+	if (n == -2147483648)
+	{
+		dest = "-2147483648";
+		return (dest);
+	}
+	return (ft_putnbr(n, dest));
+}
+
+int	main(void)
+{
+	write(1, ft_itoa(-2147483648), ft_strlen(ft_itoa(-2147483648)) + 1);
+	write(1, "\n", 1);
+	write(1, ft_itoa(2147483647), ft_strlen(ft_itoa(2147483647)) + 1);
+	write(1, "\n", 1);
+	write(1, ft_itoa(0), ft_strlen(ft_itoa(0)) + 1);
+	write(1, "\n", 1);
+	printf("文字数は%zu", ft_intlen(0));
 }

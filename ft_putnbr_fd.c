@@ -1,33 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: swaragay <swaragay@student.42.jp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/25 13:57:01 by swaragay          #+#    #+#             */
-/*   Updated: 2026/05/03 13:50:17 by swaragay         ###   ########.fr       */
+/*   Created: 2026/05/04 18:44:14 by swaragay          #+#    #+#             */
+/*   Updated: 2026/05/04 19:20:24 by swaragay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+void	ft_putnbr_fd(int n, int fd)
 {
-	size_t	count;
+	long	nb;
 
-	count = 0;
-	while (s[count] != '\0')
+	nb = n;
+	if (!n)
+		return ;
+	if (nb < 0)
 	{
-		count++;
+		ft_putchar_fd('-', fd);
+		nb = -nb;
 	}
-	return (count);
+	if (nb >= 10)
+	{
+		ft_putnbr_fd(nb / 10, fd);
+	}
+	ft_putchar_fd((nb % 10) + '0', fd);
 }
 
-// int	main(void)
-// {
-// 	char	str[30] = "Hello";
+int	main(void)
+{
+	int	n;
 
-// 	printf("文字数は%dです\n", ft_strlen(str));
-// 	printf("文字数は%luです\n", strlen(str));
-// }
+	n = 123456789;
+	ft_putnbr_fd(n, 1);
+}
