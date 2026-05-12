@@ -1,40 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: swaragay <swaragay@student.42.jp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/04 18:44:14 by swaragay          #+#    #+#             */
-/*   Updated: 2026/05/12 19:21:54 by swaragay         ###   ########.fr       */
+/*   Created: 2026/05/09 18:55:10 by swaragay          #+#    #+#             */
+/*   Updated: 2026/05/11 13:24:07 by swaragay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	long	nb;
+	t_list	*new_node;
+	t_list	*new_list;
 
-	nb = n;
-	if (!n)
-		return ;
-	if (nb < 0)
+	if (!lst || !f || !del)
+		return (NULL);
+	new_list = NULL;
+	while (lst != NULL)
 	{
-		ft_putchar_fd('-', fd);
-		nb = -nb;
+		new_node = ft_lstnew(f(lst->content));
+		if (!new_node)
+		{
+			ft_lstclear(&new_list, del);
+			return (NULL);
+		}
+		ft_lstadd_back(&new_list, new_node);
+		lst = lst->next;
 	}
-	if (nb >= 10)
-	{
-		ft_putnbr_fd(nb / 10, fd);
-	}
-	ft_putchar_fd((nb % 10) + '0', fd);
+	return (new_list);
 }
-
-// int	main(void)
-// {
-// 	int	n;
-
-// 	n = 123456789;
-// 	ft_putnbr_fd(n, 1);
-// }

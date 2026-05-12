@@ -6,7 +6,7 @@
 /*   By: swaragay <swaragay@student.42.jp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/25 16:53:13 by swaragay          #+#    #+#             */
-/*   Updated: 2026/05/01 22:22:21 by swaragay         ###   ########.fr       */
+/*   Updated: 2026/05/12 16:21:14 by swaragay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {
-	void	*dest;
+	void	*dest; //malloc(0) はNULLまたは
 
-	if (nmemb != 0 && nmemb >= SIZE_MAX / size) //割る数が０にならないように検証している。
+	if (size != 0 && nmemb >= SIZE_MAX / size) //割る数が０にならないように検証している。
 		return (NULL);
 	dest = malloc(nmemb * size);
 	if (!dest)

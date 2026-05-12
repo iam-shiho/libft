@@ -6,7 +6,7 @@
 /*   By: swaragay <swaragay@student.42.jp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/02 12:55:00 by swaragay          #+#    #+#             */
-/*   Updated: 2026/05/02 18:37:40 by swaragay         ###   ########.fr       */
+/*   Updated: 2026/05/12 19:22:56 by swaragay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,12 @@ char	*ft_strtrim(char const *s1, char const *set)
 	return (dest);
 }
 
-int	main(void)
-{
-	char	s1[10] = "Hello";
-	char	set[10] = "ll";
-	char	*dest;
+// int	main(void)
+// {
+// 	char	s1[10] = "Hello";
+// 	char	set[10] = "ll";
+// 	char	*dest;
 
-	dest = ft_strtrim(s1, set);
-	write(1, dest, ft_strlen(dest));
-}
+// 	dest = ft_strtrim(s1, set);
+// 	write(1, dest, ft_strlen(dest));
+// }

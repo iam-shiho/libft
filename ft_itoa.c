@@ -6,7 +6,7 @@
 /*   By: swaragay <swaragay@student.42.jp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/02 22:02:18 by swaragay          #+#    #+#             */
-/*   Updated: 2026/05/03 14:20:45 by swaragay         ###   ########.fr       */
+/*   Updated: 2026/05/12 19:21:14 by swaragay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,13 +70,13 @@ char	*ft_itoa(int n)
 	return (ft_putnbr(n, dest));
 }
 
-int	main(void)
-{
-	write(1, ft_itoa(-2147483648), ft_strlen(ft_itoa(-2147483648)) + 1);
-	write(1, "\n", 1);
-	write(1, ft_itoa(2147483647), ft_strlen(ft_itoa(2147483647)) + 1);
-	write(1, "\n", 1);
-	write(1, ft_itoa(0), ft_strlen(ft_itoa(0)) + 1);
-	write(1, "\n", 1);
-	printf("文字数は%zu", ft_intlen(0));
-}
+// int	main(void)
+// {
+// 	write(1, ft_itoa(-2147483648), ft_strlen(ft_itoa(-2147483648)) + 1);
+// 	write(1, "\n", 1);
+// 	write(1, ft_itoa(2147483647), ft_strlen(ft_itoa(2147483647)) + 1);
+// 	write(1, "\n", 1);
+// 	write(1, ft_itoa(0), ft_strlen(ft_itoa(0)) + 1);
+// 	write(1, "\n", 1);
+// 	printf("文字数は%zu", ft_intlen(0));
+// }

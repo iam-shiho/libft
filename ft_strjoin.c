@@ -6,7 +6,7 @@
 /*   By: swaragay <swaragay@student.42.jp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/02 11:27:15 by swaragay          #+#    #+#             */
-/*   Updated: 2026/05/02 13:25:15 by swaragay         ###   ########.fr       */
+/*   Updated: 2026/05/12 19:22:34 by swaragay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,14 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	return (dest);
 }
 
-int	main(void)
-{
-	char	str[20] = "Hello";
-	char	str1[20] = "42";
-	char	*dest;
+// int	main(void)
+// {
+// 	char	str[20] = "Hello";
+// 	char	str1[20] = "42";
+// 	char	*dest;
 
-	dest = ft_strjoin(str, str1);
-	write(1, dest, 8);
-	write(1, "\n", 1);
-	free(dest);
-}
+// 	dest = ft_strjoin(str, str1);
+// 	write(1, dest, 8);
+// 	write(1, "\n", 1);
+// 	free(dest);
+// }

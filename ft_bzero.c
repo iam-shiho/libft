@@ -6,7 +6,7 @@
 /*   By: swaragay <swaragay@student.42.jp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/23 16:27:40 by swaragay          #+#    #+#             */
-/*   Updated: 2026/05/01 20:27:00 by swaragay         ###   ########.fr       */
+/*   Updated: 2026/05/12 17:14:34 by swaragay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,22 @@ len個の0バイトを文字列に書き込み、lenが0の場合はなにもし
 使用用途は、構造体の初期化や、文字列を白紙にもどす。
 */
 
-void	ft_bzero(void *s, size_t len)
+void	ft_bzero(void *s, size_t n)
 {
 	unsigned char	*str;
 
 	str = (unsigned char *)s;
-	while (len--)
+	while (n--)
 	{
 		*str = '\0';
 		str++;
 	}
 }
+
+// void	ft_bzero(void *s, size_t n)
+// {
+// 	ft_memset(s, 0, n);
+// }
 
 // int	main(void)
 // {

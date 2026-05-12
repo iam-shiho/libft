@@ -1,40 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: swaragay <swaragay@student.42.jp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/04 18:44:14 by swaragay          #+#    #+#             */
-/*   Updated: 2026/05/12 19:21:54 by swaragay         ###   ########.fr       */
+/*   Created: 2026/05/09 15:16:52 by swaragay          #+#    #+#             */
+/*   Updated: 2026/05/09 15:31:52 by swaragay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+int	ft_lstsize(t_list *lst)
 {
-	long	nb;
-
-	nb = n;
-	if (!n)
-		return ;
-	if (nb < 0)
+	int i;
+	i = 0;
+	if (!lst)
+		return (0);
+	while(lst != NULL)
 	{
-		ft_putchar_fd('-', fd);
-		nb = -nb;
+		i++;
+		lst = lst -> next;
 	}
-	if (nb >= 10)
-	{
-		ft_putnbr_fd(nb / 10, fd);
-	}
-	ft_putchar_fd((nb % 10) + '0', fd);
+	return(i);
 }
-
-// int	main(void)
-// {
-// 	int	n;
-
-// 	n = 123456789;
-// 	ft_putnbr_fd(n, 1);
-// }

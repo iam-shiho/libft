@@ -6,7 +6,7 @@
 /*   By: swaragay <swaragay@student.42.jp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/23 16:30:32 by swaragay          #+#    #+#             */
-/*   Updated: 2026/05/03 20:52:30 by swaragay         ###   ########.fr       */
+/*   Updated: 2026/05/12 19:22:39 by swaragay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,16 +34,16 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 	return (i + s_len);
 }
 
-int	main(void)
-{
-	char	s1[30] = "abcdef";
-	char	s2[10] = "ghijkl";
-	size_t	len;
+// int	main(void)
+// {
+// 	char	s1[30] = "abcdef";
+// 	char	s2[10] = "ghijkl";
+// 	size_t	len;
 
-	// len = strlcat(s1, s2, 3);
-	// write(1, s1, len);
-	// write(1,"\n",1);
-	len = ft_strlcat(s1, s2, 10);
-	write(1, s1, len);
-	return (0);
-}
+// 	// len = strlcat(s1, s2, 3);
+// 	// write(1, s1, len);
+// 	// write(1,"\n",1);
+// 	len = ft_strlcat(s1, s2, 10);
+// 	write(1, s1, len);
+// 	return (0);
+// }

@@ -6,7 +6,7 @@
 /*   By: swaragay <swaragay@student.42.jp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/02 10:52:33 by swaragay          #+#    #+#             */
-/*   Updated: 2026/05/03 19:21:52 by swaragay         ###   ########.fr       */
+/*   Updated: 2026/05/12 19:28:33 by swaragay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	dest = malloc(sizeof(char) * (len + 1));
 	if (!dest)
 		return (NULL);
-	while (i < len-1)
+	while (i < len - 1)
 	{
 		dest[i] = s[start];
 		start++;

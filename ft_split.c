@@ -6,7 +6,7 @@
 /*   By: swaragay <swaragay@student.42.jp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/02 18:37:57 by swaragay          #+#    #+#             */
-/*   Updated: 2026/05/03 20:03:41 by swaragay         ###   ########.fr       */
+/*   Updated: 2026/05/12 19:22:21 by swaragay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,38 +84,38 @@ char	**ft_split(char const *s, char c)
 ft_substrで文字を区切り、配列を格納する。
 */
 
-int	main(void)
-{
-	char	s[30] = "42aaaa42aaaaTokyoaaaa";
-	char	c;
-	char	**str;
-	size_t	i;
+// int	main(void)
+// {
+// 	char	s[30] = "42aaaa42aaaaTokyoaaaa";
+// 	char	c;
+// 	char	**str;
+// 	size_t	i;
 
-	// size_t	j;
-	i = 0;
-	c = 'a';
-	str = ft_split(s, c);
-	// printf("%zu", ft_countword(s, c));
-	// while (i < ft_countword(s, c))
-	// {
-	// 	printf("%s\n", str[i]);
-	// 	i++;
-	// }
-	// while (i < ft_countword(s,c))
-	// {
-	// 	j = 0;
-	// 	while (str[i][j])
-	// 	{
-	// 		write(1,&str[i][j],1);
-	// 		++j;
-	// 	}
-	// 	write(1,"\n",1);
-	// 	i++;
-	// }
-	while (i < ft_countword(s, c))
-	{
-		write(1, str[i], (strlen(str[i]) + 1));
-		write(1, "\n", 1);
-		i++;
-	}
-}
+// 	// size_t	j;
+// 	i = 0;
+// 	c = 'a';
+// 	str = ft_split(s, c);
+// 	// printf("%zu", ft_countword(s, c));
+// 	// while (i < ft_countword(s, c))
+// 	// {
+// 	// 	printf("%s\n", str[i]);
+// 	// 	i++;
+// 	// }
+// 	// while (i < ft_countword(s,c))
+// 	// {
+// 	// 	j = 0;
+// 	// 	while (str[i][j])
+// 	// 	{
+// 	// 		write(1,&str[i][j],1);
+// 	// 		++j;
+// 	// 	}
+// 	// 	write(1,"\n",1);
+// 	// 	i++;
+// 	// }
+// 	while (i < ft_countword(s, c))
+// 	{
+// 		write(1, str[i], (strlen(str[i]) + 1));
+// 		write(1, "\n", 1);
+// 		i++;
+// 	}
+// }

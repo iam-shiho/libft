@@ -1,40 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: swaragay <swaragay@student.42.jp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/04 18:44:14 by swaragay          #+#    #+#             */
-/*   Updated: 2026/05/12 19:21:54 by swaragay         ###   ########.fr       */
+/*   Created: 2026/05/09 15:16:34 by swaragay          #+#    #+#             */
+/*   Updated: 2026/05/09 17:24:35 by swaragay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	long	nb;
-
-	nb = n;
-	if (!n)
+	if (!lst || !new)
 		return ;
-	if (nb < 0)
-	{
-		ft_putchar_fd('-', fd);
-		nb = -nb;
-	}
-	if (nb >= 10)
-	{
-		ft_putnbr_fd(nb / 10, fd);
-	}
-	ft_putchar_fd((nb % 10) + '0', fd);
+	new->next = *lst;
+	*lst = new;
 }
 
-// int	main(void)
-// {
-// 	int	n;
+//一番先頭にあった構造体の場所の前に構造体を作成する。
 
-// 	n = 123456789;
-// 	ft_putnbr_fd(n, 1);
-// }
+//二番目になったlstのアドレスをnewの構造体に入れる
+//現在一番目のアドレスをnewに置き換える
+//構造体のメンバではなく全体もあつかうから二重ポインタなのか？？
