@@ -6,19 +6,19 @@
 /*   By: swaragay <swaragay@student.42.jp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/02 22:02:18 by swaragay          #+#    #+#             */
-/*   Updated: 2026/05/12 19:21:14 by swaragay         ###   ########.fr       */
+/*   Updated: 2026/05/15 14:03:46 by swaragay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_intlen(int n)
+size_t	ft_intlen(long n)
 {
 	size_t	count;
 
 	count = 0;
 	if (n == 0)
-		count++;
+		return (1);
 	if (n < 0)
 	{
 		n *= -1;
@@ -32,42 +32,40 @@ size_t	ft_intlen(int n)
 	return (count);
 }
 
-char	*ft_putnbr(int nb, char *dest)
+char	*ft_putnbr(long n, char *dest, long len)
 {
-	int	i;
-
-	if (nb < 0)
+	dest[len] = '\0';
+	if (n == 0)
 	{
-		i = 0;
-		dest[i] = '-';
-		nb *= -1;
+		dest[0] = '0';
+		return (dest);
 	}
-	i = ft_intlen(nb);
-	dest[i] = '\0';
-	i--;
-	while (nb >= 10)
+	if (n < 0)
 	{
-		dest[i] = (nb % 10) + '0';
-		nb = nb / 10;
-		i--;
+		dest[0] = '-';
+		n *= -1;
 	}
-	dest[i] = (nb % 10) + '0';
+	while (n > 0)
+	{
+		dest[len - 1] = (n % 10) + '0';
+		n = n / 10;
+		len--;
+	}
 	return (dest);
 }
 
 char	*ft_itoa(int n)
 {
 	char	*dest;
+	long	nbr;
+	long	len;
 
-	dest = malloc(ft_intlen(n) + 1);
+	nbr = n;
+	len = ft_intlen(nbr);
+	dest = malloc(len + 1);
 	if (!dest)
 		return (NULL);
-	if (n == -2147483648)
-	{
-		dest = "-2147483648";
-		return (dest);
-	}
-	return (ft_putnbr(n, dest));
+	return (ft_putnbr(nbr, dest, len));
 }
 
 // int	main(void)

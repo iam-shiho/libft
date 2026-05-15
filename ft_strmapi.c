@@ -6,7 +6,7 @@
 /*   By: swaragay <swaragay@student.42.jp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/04 11:41:42 by swaragay          #+#    #+#             */
-/*   Updated: 2026/05/04 15:25:53 by swaragay         ###   ########.fr       */
+/*   Updated: 2026/05/15 13:05:45 by swaragay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,19 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	unsigned int	i;
 
 	i = 0;
+	if (!s || !f)
+		return (NULL);
 	s_len = ft_strlen(s);
 	f_dest = malloc(s_len + 1);
+	if (!f_dest)
+		return (NULL);
 	while (s[i] != '\0')
 	{
 		f_dest[i] = f(i, s[i]);
 		i++;
 	}
-	return (ft_strdup(f_dest));
+	f_dest[i] = '\0';
+	return (f_dest);
 }
 
 // char	ft_toupp(unsigned int i, char s)

@@ -6,7 +6,7 @@
 /*   By: swaragay <swaragay@student.42.jp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 15:09:41 by swaragay          #+#    #+#             */
-/*   Updated: 2026/05/03 18:03:54 by swaragay         ###   ########.fr       */
+/*   Updated: 2026/05/15 11:49:14 by swaragay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ char	*ft_strrchr(const char *s, int c)
 			return ((char *)&s[i]);
 		i--;
 	}
+	if (s[0] == w)
+		return ((char *)&s[0]);
 	return (NULL);
 }
 

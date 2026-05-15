@@ -6,7 +6,7 @@
 /*   By: swaragay <swaragay@student.42.jp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/04 18:44:14 by swaragay          #+#    #+#             */
-/*   Updated: 2026/05/12 19:21:54 by swaragay         ###   ########.fr       */
+/*   Updated: 2026/05/15 12:51:13 by swaragay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ void	ft_putnbr_fd(int n, int fd)
 	long	nb;
 
 	nb = n;
-	if (!n)
-		return ;
 	if (nb < 0)
 	{
 		ft_putchar_fd('-', fd);

@@ -6,7 +6,7 @@
 /*   By: swaragay <swaragay@student.42.jp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/04 19:51:53 by swaragay          #+#    #+#             */
-/*   Updated: 2026/05/11 11:49:46 by swaragay         ###   ########.fr       */
+/*   Updated: 2026/05/15 11:57:54 by swaragay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_list	*ft_lstnew(void *content)
 {
 	struct s_list	*deta;
 
-	deta = malloc(sizeof(t_list) * 1); //2つ項目あるのに一つでいいの？
+	deta = malloc(sizeof(t_list) * 1);
 	if (!deta)
 		return (NULL);
 	deta->content = content;

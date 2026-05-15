@@ -6,19 +6,19 @@
 /*   By: swaragay <swaragay@student.42.jp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/09 15:32:47 by swaragay          #+#    #+#             */
-/*   Updated: 2026/05/09 15:43:04 by swaragay         ###   ########.fr       */
+/*   Updated: 2026/05/15 11:48:03 by swaragay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list *ft_lstlast(t_list *lst)
+t_list	*ft_lstlast(t_list *lst)
 {
 	if (!lst)
 		return (NULL);
-	while(lst -> next != NULL)
+	while (lst->next != NULL)
 	{
-		lst = lst -> next;
+		lst = lst->next;
 	}
-	return(lst);
+	return (lst);
 }

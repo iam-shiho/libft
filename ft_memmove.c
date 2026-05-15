@@ -6,7 +6,7 @@
 /*   By: swaragay <swaragay@student.42.jp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 09:24:46 by swaragay          #+#    #+#             */
-/*   Updated: 2026/05/11 21:16:54 by swaragay         ###   ########.fr       */
+/*   Updated: 2026/05/15 12:58:17 by swaragay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	*ft_memmove(void *dest, const void *src, size_t len)
 
 	d = (unsigned char *)dest;
 	s = (const unsigned char *)src;
-	if (!dest || !src)
+	if (!dest && !src)
 		return (NULL);
 	if (d < s)
 	{

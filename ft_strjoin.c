@@ -6,7 +6,7 @@
 /*   By: swaragay <swaragay@student.42.jp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/02 11:27:15 by swaragay          #+#    #+#             */
-/*   Updated: 2026/05/12 19:22:34 by swaragay         ###   ########.fr       */
+/*   Updated: 2026/05/15 12:36:20 by swaragay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,22 +22,15 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	i = 0;
 	j = 0;
+	if (!s1 || !s2)
+		return (NULL);
 	s1_len = ft_strlen(s1);
 	s2_len = ft_strlen(s2);
 	dest = malloc(sizeof(char) * (s1_len + s2_len + 1));
 	if (!dest)
 		return (NULL);
-	while (s1[i])
-	{
-		dest[i] = s1[i];
-		i++;
-	}
-	while (s2[j])
-	{
-		dest[i] = s2[j];
-		i++;
-		j++;
-	}
+	ft_strlcpy(dest, s1, s1_len + 1);
+	ft_strlcat(dest, s2, s1_len + s2_len + 1);
 	return (dest);
 }
 

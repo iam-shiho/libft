@@ -6,7 +6,7 @@
 /*   By: swaragay <swaragay@student.42.jp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/04 15:32:55 by swaragay          #+#    #+#             */
-/*   Updated: 2026/05/04 19:19:37 by swaragay         ###   ########.fr       */
+/*   Updated: 2026/05/15 12:49:42 by swaragay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 void	ft_putchar_fd(char c, int fd)
 {
-	if (!c)
-		return ;
 	write(fd, &c, 1);
 }
 

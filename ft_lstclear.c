@@ -6,7 +6,7 @@
 /*   By: swaragay <swaragay@student.42.jp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/09 17:59:40 by swaragay          #+#    #+#             */
-/*   Updated: 2026/05/09 18:47:43 by swaragay         ###   ########.fr       */
+/*   Updated: 2026/05/15 16:42:06 by swaragay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,14 @@
 
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	t_list *dest;
+	t_list	*dest;
 
-	while(*lst != NULL)
+	if (!lst || !del)
+		return ;
+	while (*lst != NULL)
 	{
-		dest = (*lst) -> next;
-		del((*lst) -> content);
+		dest = (*lst)->next;
+		del((*lst)->content);
 		free(*lst);
 		*lst = dest;
 	}

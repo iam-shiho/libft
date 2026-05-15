@@ -6,7 +6,7 @@
 /*   By: swaragay <swaragay@student.42.jp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/04 13:02:27 by swaragay          #+#    #+#             */
-/*   Updated: 2026/05/04 18:08:56 by swaragay         ###   ########.fr       */
+/*   Updated: 2026/05/15 11:48:49 by swaragay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,14 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
 	unsigned int	i;
 
-	if (!s)
+	if (!s || !f)
 		return ;
 	i = 0;
-	f(i, s);
+	while (s[i] != '\0')
+	{
+		f(i, &s[i]);
+		i++;
+	}
 }
 
 // void	ft_toupp(unsigned int i, char *s)

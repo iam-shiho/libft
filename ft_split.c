@@ -6,7 +6,7 @@
 /*   By: swaragay <swaragay@student.42.jp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/02 18:37:57 by swaragay          #+#    #+#             */
-/*   Updated: 2026/05/12 19:22:21 by swaragay         ###   ########.fr       */
+/*   Updated: 2026/05/15 16:32:58 by swaragay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,19 @@ size_t	ft_wordlen(char const *s, char c, int i)
 	while (s[i] != '\0')
 	{
 		if (s[i] == c)
-			return (len + 1);
+			return (len);
 		len++;
 		i++;
 	}
 	return (len);
+}
+
+void	*all_free(char **dest, unsigned int j)
+{
+	while (j--)
+		free(dest[j]);
+	free(dest);
+	return (NULL);
 }
 
 char	**ft_split(char const *s, char c)
@@ -60,29 +68,26 @@ char	**ft_split(char const *s, char c)
 
 	i = 0;
 	j = 0;
+	if (!s)
+		return (NULL);
 	dest = (char **)malloc(sizeof(char *) * (ft_countword(s, c) + 1));
-	//文字列をいれる配列の分確保した
 	if (!dest)
-		dest[i] = NULL;
+		return (NULL);
 	while (s[i] != '\0')
 	{
 		while (s[i] == c && s[i] != '\0')
 			i++;
-		if (s[i] != c) //もじが一致しないばあい
+		if (s[i] != c && s[i] != '\0')
 		{
 			dest[j] = ft_substr(s, i, ft_wordlen(s, c, i));
+			if (!dest[j])
+				return (all_free(dest, j));
 			j++;
 			i += ft_wordlen(s, c, i);
 		}
 	}
-	dest[j] = NULL;
-	return (dest);
+	return (dest[j] = NULL, dest);
 }
-
-/*
-区切る数を求める（+2はNULLと分けるとき区切る数＋１配列ができるから）
-ft_substrで文字を区切り、配列を格納する。
-*/
 
 // int	main(void)
 // {
