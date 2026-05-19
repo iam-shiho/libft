@@ -6,7 +6,7 @@
 /*   By: swaragay <swaragay@student.42.jp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/02 10:52:33 by swaragay          #+#    #+#             */
-/*   Updated: 2026/05/15 11:49:24 by swaragay         ###   ########.fr       */
+/*   Updated: 2026/05/19 19:38:13 by swaragay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,10 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 // int	main(void)
 // {
-// 	char	str[20] = "abcdefghijk";
+// 	char	str[20] = "abcde";
 // 	char	*dest;
 
-// 	dest = ft_substr(str, 4, 2);
+// 	dest = ft_substr(str, 3, 1);
 // 	write(1, dest, 2);
 // 	write(1, "\n", 1);
 // 	free(dest);
