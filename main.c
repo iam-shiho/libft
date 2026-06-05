@@ -6,7 +6,7 @@
 /*   By: swaragay <swaragay@student.42.jp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/04 08:05:24 by swaragay          #+#    #+#             */
-/*   Updated: 2026/06/04 16:15:03 by swaragay         ###   ########.fr       */
+/*   Updated: 2026/06/05 19:06:08 by swaragay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,48 +15,42 @@
 int	ft_printf(const char *format, ...) //引数のインデント
 {
 	va_list args;
+	int len;
 
 	va_start(args, format);
+	len = 0;
 	while (*format)
 	{
 		if (*format == '%')
 		{
 			++format;
-			if (*format != '%')
-			{
-				if (*format == 'c')
-					ft_char(va_arg(args, int));
-				else if (*format == 's')
-					ft_putstr(va_arg(args, const char *));
-				else if (*format == 'p')
-					ft_pointer(va_arg(args, void *));
-				else if (*format == 'd' || *format == 'i' || *format == 'u')
-					ft_num(*format, count_arg);
-				else if (*format == 'x' || *format == 'X')
-					ft_hex(*format, count_arg);
-				else
-					write(1, *format, 1);
-			}
-			else if (*format == '%')
-				write(1, '%', 1);
+			which_conversion(format, args);
 		}
+		else
+			write(1, format, 1);
 		++format;
 	}
 	va_end(args);
+	return (len);
 }
 
-char	which_conversion(char *format, int count_arg) //各オプション？に分類
+char	which_conversion(char *format, va_list args) //各オプション？に分類
 {
-	if (*format == 'c')
-		ft_char(*format, count_arg);
-	else if (*format == 's')
-		ft_str(*format, count_arg);
-	else if (*format == 'p')
-		ft_pointer(*format, count_arg);
-	else if (*format == 'd' || *format == 'i' || *format == 'u')
-		ft_num(*format, count_arg);
-	else if (*format == 'x' || *format == 'X')
-		ft_hex(*format, count_arg);
-	else
-		write(1, *format, 1);
+	if (*format != '%')
+	{
+		if (*format == 'c')
+			ft_char(va_arg(args, int));
+		else if (*format == 's')
+			ft_putstr(va_arg(args, const char *));
+		else if (*format == 'p')
+			ft_pointer(va_arg(args, void *));
+		else if (*format == 'd' || *format == 'i')
+			ft_num(va_arg(args, int));
+		else if (*format == 'u')
+			ft_unnum(va_arg(args, unsigned int));
+		else if (*format == 'x' || *format == 'X')
+			ft_hex(va_arg(args, unsigned int));
+	}
+	else if (*format == '%')
+		write(1, '%', 1);
 }

@@ -6,7 +6,7 @@
 /*   By: swaragay <swaragay@student.42.jp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/04 15:43:39 by swaragay          #+#    #+#             */
-/*   Updated: 2026/06/04 15:50:44 by swaragay         ###   ########.fr       */
+/*   Updated: 2026/06/05 15:01:22 by swaragay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdarg.h>
 # include <stdint.h>
+# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 

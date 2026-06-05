@@ -6,32 +6,47 @@
 /*   By: swaragay <swaragay@student.42.jp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/04 08:47:25 by swaragay          #+#    #+#             */
-/*   Updated: 2026/06/04 15:52:35 by swaragay         ###   ########.fr       */
+/*   Updated: 2026/06/05 19:05:47 by swaragay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-unsigned char	ft_char(int c)
+int	ft_char(int c)
 {
-	write(1, &c, 1);
+	int				len;
+	unsigned char	cc;
+
+	len = 1;
+	cc = c;
+	write(1, &cc, 1);
+	return (len);
 }
 
-char	ft_putstr(const char *s)
+int	ft_putstr(const char *s)
 {
-	size_t	i;
+	int	len;
 
 	if (!s)
 		return ;
-	i = 0;
-	while (s[i] != '\0')
+	len = 0;
+	while (s[len] != '\0')
 	{
-		write(1, &s[i], 1);
-		i++;
+		write(1, &s[len], 1);
+		++len;
 	}
+	return (len);
 }
 
-void *ft_pointer(void*)
+char	*ft_pointer(void *p)
 {
-	
+	char	*point;
+
+	if ()
+		point = malloc(sizeof(char) * ft_strlen((char)&p));
+	if (!point)
+		return (NULL);
+	point = &p;
+	write(1, &point, ft_strlen((char)&p));
+	free(point);
 }
